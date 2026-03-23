@@ -35,6 +35,49 @@ The feature selection techniques used are:
 3.Embedded Method
 
 # CODING AND OUTPUT:
-       # INCLUDE YOUR CODING AND OUTPUT SCREENSHOTS HERE
+```
+import numpy as np
+import pandas as pd
+from sklearn.preprocessing import StandardScaler, MinMaxScaler, MaxAbsScaler, RobustScaler
+df = pd.read_csv('bmi.csv')  
+
+print("Original Dataset:")
+print(df.head())
+df=df.dropna()
+df_std = df.copy()
+scaler_std = StandardScaler()
+df_std[['Height', 'Weight']] = scaler_std.fit_transform(df_std[['Height', 'Weight']])
+
+print("\nStandard Scaled Data:")
+print(df_std.head())
+df_minmax = df.copy()
+scaler_minmax = MinMaxScaler()
+df_minmax[['Height', 'Weight']] = scaler_minmax.fit_transform(df_minmax[['Height', 'Weight']])
+
+print("\nMin-Max Scaled Data:")
+print(df_minmax.head())
+
+df_maxabs = df.copy()
+scaler_maxabs = MaxAbsScaler()
+df_maxabs[['Height', 'Weight']] = scaler_maxabs.fit_transform(df_maxabs[['Height', 'Weight']])
+
+print("\nMaxAbs Scaled Data:")
+print(df_maxabs.head())
+
+df_robust = df.copy()
+scaler_robust = RobustScaler()
+df_robust[['Height', 'Weight']] = scaler_robust.fit_transform(df_robust[['Height', 'Weight']])
+
+print("\nRobust Scaled Data:")
+print(df_robust.head())
+print("\nFeature Scaling Completed Successfully.")
+```
+<img width="450" height="223" alt="image" src="https://github.com/user-attachments/assets/09eea541-2ed5-4ea2-91bd-bacbaa3abe3d" />
+<img width="540" height="283" alt="image" src="https://github.com/user-attachments/assets/566c2b41-3bc0-427d-b96c-3cf332591bc6" />
+<img width="554" height="273" alt="image" src="https://github.com/user-attachments/assets/ab823f70-bb4f-4005-a31c-fb5622f3841d" />
+<img width="464" height="251" alt="image" src="https://github.com/user-attachments/assets/79186e44-0f72-40b9-8740-895069a6785a" />
+<img width="474" height="279" alt="image" src="https://github.com/user-attachments/assets/6c00360a-6a4a-4da6-84e4-d179921887ef" />
+
 # RESULT:
-       # INCLUDE YOUR RESULT HERE
+Thus to read the given data and perform Feature Scaling and Feature Selection process and save the data to a file is implemented.
+
